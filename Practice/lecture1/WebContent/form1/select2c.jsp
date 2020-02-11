@@ -42,7 +42,7 @@ else if ("/".equals(cmd)) result = number1 / number2;
       <div class="form-group">
           <label>operator:</label>
           <select name="cmd" class="form-control">
-              <option value="+" <%= "+".equals(cmd) ? "selected" : "" %>>+</option>
+              <option value="+" <%= "+".equals(cmd) ? "selec ted" : "" %>>+</option>
               <option value="-" <%= "-".equals(cmd) ? "selected" : "" %>>-</option>
               <option value="*" <%= "*".equals(cmd) ? "selected" : "" %>>*</option>
               <option value="/" <%= "/".equals(cmd) ? "selected" : "" %>>/</option>

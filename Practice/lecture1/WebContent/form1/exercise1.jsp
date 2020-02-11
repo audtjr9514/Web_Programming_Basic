@@ -33,8 +33,12 @@ thead tr {
 <body>
 	<%
 		String str = request.getParameter("number");
-		int number = (str == null) ? 0 : Integer.parseInt(request.getParameter("number"));
-		"++".equals(getParameter("cmd")? number++:number--;
+		int number = (str == null) ? 0 : Integer.parseInt(str);
+		if("++".equals(request.getParameter("cmd")))
+			number++;
+		else if("--".equals(request.getParameter("cmd")))
+			number--;
+		
 	%>
 
 	<div class="container">
