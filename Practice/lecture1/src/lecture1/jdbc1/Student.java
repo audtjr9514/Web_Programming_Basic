@@ -1,4 +1,6 @@
 package lecture1.jdbc1;
+// Student 테이블에서 조회한 데이터를 채워서 전달하기 위한 객체
+// DTO 객체 ( Data Transfer Object )
 
 public class Student {
 	int id;
