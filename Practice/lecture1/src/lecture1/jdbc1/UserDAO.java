@@ -5,18 +5,19 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+
 import lecture1.DB;
 
 public class UserDAO {
 	public static List<User> findAll() throws Exception {
 		String sql = "select u.*,  d.departmentName " + "FROM user u LEFT JOIN department d on u.departmentId = d.id;";
-		try (Connection connection = DB.getConnection("student1"); // Connection : DB¿¡ ¿¬°áÇÏ±â À§ÇÑ °´Ã¼
-				PreparedStatement statement = connection.prepareStatement(sql); // PreparedStatement : SQL ¸í·ÉÀ» ½ÇÇàÇÏ±â À§ÇÑ °´Ã¼
-				ResultSet resultSet = statement.executeQuery()) { // executeQuery ¸Þ¼Òµå¸¦ ½ÇÇà -< DB¿¡¼­ SQL ½ÇÇà -> °á°ú¸¦
-																	// ResultSet °´Ã¼¿¡ Àü´Þ
+		try (Connection connection = DB.getConnection("student1"); // Connection : DBï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼
+				PreparedStatement statement = connection.prepareStatement(sql); // PreparedStatement : SQL ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼
+				ResultSet resultSet = statement.executeQuery()) { // executeQuery ï¿½Þ¼Òµå¸¦ ï¿½ï¿½ï¿½ï¿½ -< DBï¿½ï¿½ï¿½ï¿½ SQL ï¿½ï¿½ï¿½ï¿½ -> ï¿½ï¿½ï¿½ï¿½ï¿½
+																	// ResultSet ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			ArrayList<User> list = new ArrayList<User>();
-			// DBÀÇ StudentÅ×ÀÌºí¿¡¼­ Á¶È¸ÇÑ µ¥ÀÌÅÍ¸¦ Student °´Ã¼¿¡ Ã¤¿ì°í,
-			// StudentÀÇ °´Ã¼µéÀ» ArrayList¿¡ Ã¤¿ö¼­ -> ArrayList °´Ã¼¸¦ ¸®ÅÏÇÑ´Ù.
+			// DBï¿½ï¿½ Studentï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ Student ï¿½ï¿½Ã¼ï¿½ï¿½ Ã¤ï¿½ï¿½ï¿½,
+			// Studentï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½ ArrayListï¿½ï¿½ Ã¤ï¿½ï¿½ï¿½ï¿½ -> ArrayList ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 			while (resultSet.next()) {
 				User user = new User();
 				user.setId(resultSet.getInt("id"));
@@ -28,7 +29,6 @@ public class UserDAO {
 				user.setDepartmentName(resultSet.getString("departmentName"));
 				user.setEnabled(resultSet.getBoolean("enabled"));
 				user.setUserType(resultSet.getString("userType"));
-				list.add(user);
 			}
 			return list;
 		}
