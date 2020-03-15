@@ -6,6 +6,9 @@
 <html>
 <head>
 <meta charset="utf-8">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<link href="common.css" rel="stylesheet">
+<script src="common.js"></script>
 </head>
 <body>
 	<h1>안녕하세요</h1>
